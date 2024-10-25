@@ -73,7 +73,25 @@ namespace személyazonosító
 
         static int birthDiff(string id1, string id2)
         {
-
+            int idyear1 = id1[1] + id1[2];
+            int idyear2 = id2[1] + id2[2];
+            if ( idyear1 > 25)
+            {
+                idyear1 += 2000;
+            }
+            else
+            {
+                idyear1 += 1900;
+            }
+            if (idyear2 > 25)
+            {
+                idyear2 += 2000;
+            }
+            else
+            {
+                idyear2 += 1900;
+            }
+            return (idyear1 - idyear2) >= 0 ? idyear1 - idyear2 : idyear2 - idyear1;
         }
         static void Main(string[] args)
         {
@@ -85,6 +103,7 @@ namespace személyazonosító
             string id2 = input();
             int birthOrder2 = id[8] + id[9] + id[10];
             Console.WriteLine("Az " + older(id, id2, birthOrder1, birthOrder2) + ". számú az idősebb");
+            Console.WriteLine("A születési különbségük: " + birthDiff(id,id2));
         }
     }
 }
