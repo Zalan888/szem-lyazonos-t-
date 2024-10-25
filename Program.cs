@@ -61,14 +61,28 @@ namespace személyazonosító
 
         static int older(string id1, string id2, int birthOrder1, int birthOrder2)
         {
-            if (id1 == id2)
+            string id1birth = "";
+            string id2birth = "";
+
+            for (int i = 2; i <= 7; i++)
             {
-                return birthOrder1 > birthOrder2 ? 1 : birthOrder2 > birthOrder1 ?  2 : 0;
+                id1birth += Convert.ToString(id1[i]);
             }
 
-            return Convert.ToInt32(id1) > Convert.ToInt32(id2) ? 1 
-                : Convert.ToInt32(id2) > Convert.ToInt32(id1) ? 2
-                : 0;
+            for (int i = 2; i <= 7; i++)
+            {
+                id2birth += Convert.ToString(id2[i]);
+            }
+
+            if (id1birth == id2birth)
+            {
+                return birthOrder1 > birthOrder2 ? 1 : birthOrder2 > birthOrder1 ? 2 : 0;
+            }
+            else
+            {
+                return Convert.ToInt32(id1birth) > Convert.ToInt32(id2birth) ? 1
+                    : 2;
+            }
         }
 
         static int birthDiff(string id1, string id2)
@@ -96,12 +110,12 @@ namespace személyazonosító
         static void Main(string[] args)
         {
             string id = input();
-            int birthOrder1 = id[8] + id[9] + id[10];
+            int birthOrder1 = id[7] + id[8] + id[9];
             Console.WriteLine(gender(id));
             birth(id);
             Console.WriteLine("A következő születésnapi életkora: " + birthday(id));
             string id2 = input();
-            int birthOrder2 = id[8] + id[9] + id[10];
+            int birthOrder2 = id[7] + id[8] + id[9];
             Console.WriteLine("Az " + older(id, id2, birthOrder1, birthOrder2) + ". számú az idősebb");
             Console.WriteLine("A születési különbségük: " + birthDiff(id,id2));
         }
