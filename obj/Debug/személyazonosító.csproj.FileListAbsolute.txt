@@ -1,0 +1,7 @@
+C:\Users\witmannz\gitWork\személyazonosító\bin\Debug\személyazonosító.exe.config
+C:\Users\witmannz\gitWork\személyazonosító\bin\Debug\személyazonosító.exe
+C:\Users\witmannz\gitWork\személyazonosító\bin\Debug\személyazonosító.pdb
+C:\Users\witmannz\gitWork\személyazonosító\obj\Debug\személyazonosító.csproj.AssemblyReference.cache
+C:\Users\witmannz\gitWork\személyazonosító\obj\Debug\személyazonosító.csproj.CoreCompileInputs.cache
+C:\Users\witmannz\gitWork\személyazonosító\obj\Debug\személyazonosító.exe
+C:\Users\witmannz\gitWork\személyazonosító\obj\Debug\személyazonosító.pdb
