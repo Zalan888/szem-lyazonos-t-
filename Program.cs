@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -136,6 +137,12 @@ namespace személyazonosító
             Console.WriteLine("Az " + older(id, id2, birthOrder1, birthOrder2) + ". számú az idősebb");
             Console.WriteLine("A születési különbségük: " + birthDiff(id,id2) + " év");
             Console.WriteLine("A 2. azonosító teljessége: " + id2 + lastnum(id2));
+            // Write out the 2 ids
+            using (StreamWriter writer = new StreamWriter("C:\\Users\\witmannz\\gitWork\\személyazonosító\\szemszam.txt"))
+            {
+                writer.WriteLine(id);
+                writer.WriteLine(id2);
+            }
         }
     }
 }
