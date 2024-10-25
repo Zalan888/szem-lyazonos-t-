@@ -81,7 +81,7 @@ namespace személyazonosító
             }
             else
             {
-                return Convert.ToInt32(id1birth) > Convert.ToInt32(id2birth) ? 1
+                return Convert.ToInt32(id1birth) < Convert.ToInt32(id2birth) ? 1
                     : 2;
             }
         }
