@@ -85,6 +85,19 @@ namespace személyazonosító
             }
         }
 
+        static int lastnum(string id)
+        {
+            int counter = 1;
+            int sum = 0;
+            for (int i = 9; i >= 0; i--)
+            {
+                sum += Convert.ToInt32(id[i]) * counter;
+                counter++;
+            }
+
+            return sum % 11;
+        }
+
         static int birthDiff(string id1, string id2)
         {
             int idyear1 = id1[1] + id1[2];
@@ -110,14 +123,19 @@ namespace személyazonosító
         static void Main(string[] args)
         {
             string id = input();
+            // 1. ID
             int birthOrder1 = id[7] + id[8] + id[9];
             Console.WriteLine(gender(id));
             birth(id);
             Console.WriteLine("A következő születésnapi életkora: " + birthday(id));
+            
+            
             string id2 = input();
+            // 2. ID + older + diff
             int birthOrder2 = id[7] + id[8] + id[9];
             Console.WriteLine("Az " + older(id, id2, birthOrder1, birthOrder2) + ". számú az idősebb");
-            Console.WriteLine("A születési különbségük: " + birthDiff(id,id2));
+            Console.WriteLine("A születési különbségük: " + birthDiff(id,id2) + " év");
+            Console.WriteLine("A 2. azonosító teljessége: " + id2 + lastnum(id2));
         }
     }
 }
